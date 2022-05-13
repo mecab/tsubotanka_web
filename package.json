@@ -4,11 +4,14 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "webpack-dev-server",
+    "build:dev": "cross-env NODE_ENV=development webpack",
+    "build": "cross-env NODE_ENV=production webpack"
   },
   "author": "mecab",
   "license": "MIT",
   "devDependencies": {
+    "cross-env": "^7.0.3",
     "css-loader": "^6.7.1",
     "mini-css-extract-plugin": "^2.6.0",
     "normalize.css": "^8.0.1",

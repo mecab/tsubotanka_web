@@ -2,9 +2,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const RemoveEmptyScriptsPlugin = require('webpack-remove-empty-scripts');
 
 module.exports = {
-  // モード値を production に設定すると最適化された状態で、
-  // development に設定するとソースマップ有効でJSファイルが出力される
-  mode: "production",
+  mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
   entry: {
     style: `${__dirname}/src/css/style.scss`
   },
@@ -12,6 +10,7 @@ module.exports = {
     path: `${__dirname}/dist`,
     filename: 'js/[name].js'
   },
+  target: ["web", "es2020"],
   module: {
     rules: [
       {
@@ -43,5 +42,11 @@ module.exports = {
       filename: '[name].css',
     }),
   ],
-  target: ["web", "es2020"],
+  devServer: {
+    static: {
+      directory: `${__dirname}/public`
+    },
+    compress: true,
+    port: 3000,
+  },
 };

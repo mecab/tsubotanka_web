@@ -2,83 +2,157 @@
 <html>
 <head>
   <link rel="stylesheet" href="/css/style.css" />
+  <title>坪単価計算 ブラウザ拡張</title>
 </head>
 <body>
   <div class="layout">
-    <section class="main-header">
-      <div class="main-header__left">
-        <p class="main-header__subtitle">Chrome拡張機能</p>
-        <h1 class="main-header__title">坪単価計算</h1>
-      </div>
-      <div class="main-header__right">
-        <div class="main-header__infobox infobox">
-          <div class="infobox__content">
-            <div class="infobox__title">利用料</div>
-            <div class="infobox__price">0<span class="infobox__price-unit">円</span></div>
+    <div class="layout__content">
+      <section class="main-header">
+        <div class="main-header__left">
+          <p class="main-header__subtitle">Chrome拡張機能</p>
+          <h1 class="main-header__title">坪単価計算</h1>
+        </div>
+        <div class="main-header__center">
+          <div class="infobox">
+            <div class="infobox__content">
+              <div class="infobox__title">利用料</div>
+              <div class="infobox__price">0<span class="infobox__price-unit">円</span></div>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
-    <section class="main-content">
-      <div class="promotion">
-        <div class="promotion__picture-and-text two-column">
-          <div class="two-column__left">
-            <img class="two-column__image" src="/image/screenshot2.png" />
-          </div>
-          <div class="two-column__right">
-            ☆ 坪単価を簡単に計算できます
+        <div class="main-header__right">
+          <div class="install-attraction">
+            <div class="install-attraction__content">
+              <a href="https://chrome.google.com/webstore/detail/tsubotanka/eimoalfdbdiofignbcmlfgjdfdffmbcd">インストールは<br />こちらから！！</a>
+            </div>
           </div>
         </div>
-
-        <div class="promotion__picture-and-text two-column">
-          <div class="two-column__left">
-            <img class="two-column__image" src="/image/screenshot1.png" />
+      </section>
+      <section class="main-content">
+        <div class="main-content__container">
+          <div class="main-content__left promotion">
+            <div class="promotion__picture-and-text two-column">
+              <div class="two-column__image">
+                <img src="/image/screenshot2.png" />
+              </div>
+              <div class="two-column__text">
+                <p>☆ 坪単価を簡単に計算できます</p>
+                <p>☆ 結果はページ上の好きなところに固定できるので比較に便利！</p>
+              </div>
+            </div>
+            
+            <div class="promotion__picture-and-text two-column">
+              <div class="two-column__image">
+                <img src="/image/screenshot1.png" />
+              </div>
+              <div class="two-column__text">
+                <p>☆ テキストを選択して右クリックするだけ</p>
+                <p>☆ 面積と値段が含まれていればなんでもOK</p>
+                <p>☆ 坪でもm2でも大丈夫！</p>
+              </div>
+            </div>
+            
+            <div class="promotion__picture-and-text two-column">
+              <div class="two-column__image">
+                <img src="/image/screenshot3.png" />
+              </div>
+              <div class="two-column__text">
+                <p>☆ 選択した文字列から自動で情報を抽出するので、サイトに依存しません</p>
+                <p>☆ スーモでもホームズでもアットホームでも大丈夫！</p>
+              </div>
+            </div>
           </div>
-          <div class="two-column__right">
-            <p>☆ テキストを選択して右クリックするだけです</p>
-            <p>☆ 面積と値段が含まれていればなんでもOK</p>
-            <p>☆ 坪でもm2でも大丈夫！</p>
+          <div class="main-content__right">
+            <div class="movie">
+              <div class="movie__header">
+                <h2>紹介動画</h2>
+              </div>
+              <iframe width="100%" height="250" src="https://www.youtube.com/embed/R5vwAeK-rPk?controls=1&amp;modestbranding=1&amp;loop=1&amp;playlist=R5vwAeK-rPk&amp;autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="spec">
+              <div class="spec__header">
+                <h2>機能概要</h2>
+              </div>
+              <table class="spec-table">
+                <tr>
+                  <td>名称</td>
+                  <td>坪単価計算</td>
+                </tr>
+                <tr>
+                  <td>最新バージョン</td>
+                  <td>v0.9.0</td>
+                </tr>
+                <tr>
+                  <td>ソフトウェアの種類</td>
+                  <td>ブラウザ拡張</td>
+                </tr>
+                <tr>
+                  <td>配布場所</td>
+                  <td><a href="https://chrome.google.com/webstore/detail/tsubotanka/eimoalfdbdiofignbcmlfgjdfdffmbcd">Chrome ウェブストア</a></td>
+                </tr>
+                <tr>
+                  <td>インストールの方法</td>
+                  <td>対応ブラウザで上記リンクを開きインストールボタンをクリック</td>
+                </tr>
+                <tr>
+                  <td>対応ブラウザ</td>
+                  <td>Chrome</td>
+                </tr>
+                <tr>
+                  <td>初期利用料</td>
+                  <td>0円</td>
+                </tr>
+                <tr>
+                  <td>月額利用料</td>
+                  <td>0円</td>
+                </tr>
+                <tr>
+                  <td>ライセンス</td>
+                  <td><a href="https://github.com/mecab/tsubotanka-chrome-extension/blob/master/LICENSE.md">MITライセンス</a></td>
+                </tr>
+                <tr>
+                  <td>ソースコード</td>
+                  <td><a href="https://github.com/mecab/tsubotanka-chrome-extension">https://github.com/mecab/tsubotanka-chrome-extension</a></td>
+                </tr>
+                <tr>
+                  <td>作者</td>
+                  <td>mecab</td>
+                </tr>
+                <tr>
+                  <td>作者ウェブサイト</td>
+                  <td><a href="https://misosi.ru/">https://misosi.ru/</a></td>
+                </tr>
+              </table>
+            </div>
           </div>
         </div>
-
-        <div class="promotion__picture-and-text two-column">
-          <div class="two-column__left">
-            <img class="two-column__image" src="/image/screenshot3.png" />
-          </div>
-          <div class="two-column__right">
-            <p>☆ 選択した文字列から自動で情報を抽出するので、サイトに依存しません</p>
-            <p>☆ スーモでもホームズでもアットホームでも大丈夫</p>
-          </div>
-        </div>
-      </div>
-      <div class="main_content__right spec">
-        <table class="spec_table">
-          <tr>
-            <td>名称</td>
-            <td>坪単価計算</td>
-          </tr>
-          <tr>
-            <td>配布場所</td>
-            <td><a href="https://chrome.google.com/webstore/detail/tsubotanka/eimoalfdbdiofignbcmlfgjdfdffmbcd">Chrome ウェブストア</td>
-          </tr>
-          <tr>
-            <td>対応ブラウザ</td>
-            <td>Chrome</td>
-          </tr>
-          <tr>
-            <td>ライセンス</td>
-            <td><a href="https://github.com/mecab/tsubotanka-chrome-extension/blob/master/LICENSE.md">MITライセンス</a></td>
-          </tr>
-          <tr>
-            <td>ソースコード</td>
-            <td><a href="https://github.com/mecab/tsubotanka-chrome-extension">https://github.com/mecab/tsubotanka-chrome-extension</a></td>
-          </tr>
-        </table>
-      </div>
+      </section>
     </div>
-  </section>
-</div>
-<h1>あああああああマークアップやりたくねええええええええええええええええええええええ；；；；</h1>
-<h1>あああああああマークアップやりたくねええええええええええええええええええええええ；；；；</h1>
-</body>
-</html>
+    <aside class="layout__content">
+      <footer class="footer">
+        <div class="footer__left">
+          <div class="footer__content">
+            <div class="footer__myname">
+              @mecab
+            </div>
+          </div>
+        </div>
+        <div class="footer__middle">
+          <div class="footer__content">
+            <p>ウェブサイト: <a href="https://misosi.ru/">https://misosi.ru/</a></p>
+            <p>Twitter: <a href="https://twitter.com/mecab">@mecab</a></p>
+          </div>
+        </div>
+        <div class="footer__right">
+          <div class="footer__content">
+            <header class="footer__heading">Ad</header>
+            <p>この拡張機能で浮いた時間 x 時給の3.3%ぐらいを送ってくれたら土下座します。<br />
+              BTC: <a href="bitcoin:1E4F6BtphTrLLDeFu2zA63chx2EKJeUsB5">1E4F6BtphTrLLDeFu2zA63chx2EKJeUsB5</a></p>
+              <p>欲しいものリスト: <a href="https://www.amazon.jp/hz/wishlist/ls/2N5IC02E8PNS8">https://www.amazon.jp/hz/wishlist/ls/2N5IC02E8PNS8</a></p>
+            </div>
+          </div>
+        </footer>
+      </aside>
+    </div>
+  </body>
+  </html>

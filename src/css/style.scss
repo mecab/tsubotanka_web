@@ -1,6 +1,16 @@
 @import 'normalize.css';
+@import '_breakpoint.scss';
+@import '_mixin.scss';
+
+$font-serif: "Yu Mincho", "Hiragino Mincho ProN", "MS PMincho", serif;
+$font-sans-serif:  "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial", "Meiryo", sans-serif;
+
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: $font-sans-serif;
+}
+
+a {
+    color: #01579b;
 }
 
 .layout {
@@ -8,47 +18,82 @@ body {
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
-    border: 1px solid black;
 
     box-sizing: border-box;
+
+    &__content {
+        border: 1px solid black;
+        margin-bottom: 1rem;
+    }
 }
 
 .main-header {
     background-color: #01579b;
-    color: white;
 
     display: flex;
     justify-content: space-between;
 
     &__left {
-        margin-left: 20px;
+        flex-shrink: 0;
+        margin-left: 2rem;
+        margin-right: 1rem;
+    }
+
+    &__center {
+        @include media(sm) {
+            display: none;
+        }
+
+        width: 300px;
+        flex-shrink: 1;
+        margin: 1rem;
+        margin-left: auto;
     }
 
     &__right {
-        display: flex;
+        @include media(sm) {
+            width: 200px;
+        }
         width: 300px;
-        margin-right: 20px;
-
-        align-items: center;
+        flex-shrink: 1;
+        margin: 1rem;
+        margin-left: 0;
+        margin-right: 2rem
     }
 
-    &__subtitle {
+    &__subtitle, &__title {
+        color: white;
         font-weight: bold;
         font-style: italic;
     }
+}
 
-    &__title {
-        font-weight: bold;
-        font-style: italic;        
+.install-attraction {
+    height: 100%;
+    background-color: #039be5;
+    border: 1px solid white;
+    box-shadow: 4px 4px 0px rgb(0, 0, 0);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    a {
+        color: white;
+        text-decoration: none;
     }
 
-    &__infobox {
-        width: 100%;
-        height: 80%;
+    &__content {
+        margin: 0.5rem;
+        font-size: 1.5em;
+        font-weight: bold;
+        font-style: italic;
     }
 }
 
 .infobox {
+    height: 100%;
     background-color: white;
     color: black;
 
@@ -76,45 +121,183 @@ body {
 }
 
 .main-content {
-    display: flex;
-    justify-content: space-between;
+    $spec_width: 400px;
+    $promo_width: (1200-400)px;
 
-    right: {
-        width: 500px;
+    &__container {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+        display: flex;
+        justify-content: space-between;
+
+        @include media(xs) {
+            flex-wrap: wrap;
+        }
+    }
+
+    &__left {
+        flex-basis: 800px;
+        flex-shrink: 0.6;
+        margin-left: 2rem;
+        margin-right: 2rem;
+
+        @include media(xs) {
+            flex-shrink: 1;
+        }
+    }
+
+    &__right {
+        flex-basis: $spec_width;
+        flex-shrink: 0.4;
+
+        margin-right: 2rem;
+
+        @include media(xs) {
+            flex-shrink: 1;
+            margin-left: 2rem;
+        }
     }
 }
 
 .two-column {
+    $this: &;
     display: flex;
-    justify-content: space-between;
 
-    &__left {
-        width: 50%;
+    @include media(sm) {
+        flex-wrap: wrap;
+        margin-bottom: 2rem;
     }
 
-    &__right {
-        width: 50%;
+    &__text {
+        width: 100%;
+        margin-left: 3%;
+        font-family: $font-serif;
+        font-weight: bold;
+        background-color: #e3f2fd;
+        color: black;
+        box-sizing: border-box;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+
+        @include media(sm) {
+            margin-left: 0;
+            margin-top: 1rem;
+            p {
+                margin-top: 0.5em;
+                margin-bottom: 0;
+            }
+        }
+
+        #{$this}--reversed & {
+            margin-left: 0;
+            margin-right: 3%;
+        }
     }
 
     &__image {
-        width: 100%;
+        width: 106%;
+
+        img {
+            width: 100%;
+            box-shadow: 0px 0px 10px rgb(128, 128, 128);
+        }
+    }
+
+    &--reversed {
+        @include media(sm) {
+            flex-wrap: wrap-reverse;
+        }
     }
 }
 
 .promotion {
     &__picture-and-text {
-        width: 500px;
+        margin-bottom: 2rem;
     }
 }
 
-.spec {
-    
+.movie {
+    margin-bottom: 1rem;
+
+    &__header {
+        h2 {
+            margin-top: 0;
+        }
+    }
 }
 
-.spec_table {
+.spec-table {
     border-collapse: collapse;
+    background-color: #efebe9;
 
-    .tr,td {
-        border: solid 2px black;
+    border: 1px solid #a1887f;
+
+    width: 100%;
+    table-layout: fixed;
+    overflow-wrap: anywhere;
+
+    td {
+        padding: 0.5em;
+    }
+
+    td:first-child {
+        width: 30%;
+        font-weight: bold;
+        color: #5d4037;
+    }
+
+    tr {
+        // border-bottom: 1px solid #a1887f;
+    }
+}
+
+.footer {
+    display: flex;
+    font-size: 0.8em;
+
+    p {
+        margin-top: 0.25em;
+        margin-bottom: 0.25em;
+    }
+
+    &__left {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-basis: 30%;
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+
+    &__middle {
+        display: flex;
+        align-items: center;
+        flex-basis: 30%;
+        margin-right: 1rem;
+    }
+
+    &__right {
+        display: flex;
+        margin-right: 1rem;
+    }
+
+    &__myname {
+        font-size: 2rem;
+        font-weight: bold;
+    }
+
+    &__content {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+    }
+
+    &__heading {
+        font-weight: bold;
+    }
+
+    @include media(xs) {
+        flex-wrap: wrap;
     }
 }

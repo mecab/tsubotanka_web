@@ -1,8 +1,11 @@
+const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const RemoveEmptyScriptsPlugin = require('webpack-remove-empty-scripts');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
-module.exports = {
-  mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
+module.exports = (env, argv) => ({
   entry: {
     style: `${__dirname}/src/css/style.scss`
   },
@@ -33,13 +36,47 @@ module.exports = {
           },
           "sass-loader",
         ]
-      }
+      },
     ]
   },
   plugins: [
     new RemoveEmptyScriptsPlugin(),
+    ...argv.mode === 'production' ? [ new CssMinimizerPlugin() ] : [],
     new MiniCssExtractPlugin({
       filename: 'css/[name].css',
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: path.resolve(__dirname, 'src/img'),
+          to: path.resolve(__dirname, 'dist/img'),
+        },
+        {
+          from: path.resolve(__dirname, 'public'),
+          to: path.resolve(__dirname, 'dist'),
+        },
+      ],
+    }),
+    new ImageMinimizerPlugin({
+      test: /\.(png|jpe?g)$/i,
+      loader: false,
+      minimizer: [
+        {
+          implementation: ImageMinimizerPlugin.squooshMinify,
+          options: {
+            resize: {
+              enabled: true,
+              width: 512,
+            },
+            
+            encodeOptions: {
+              oxipng: {
+                level: 5,
+              },
+            },
+          }
+        }
+      ]
     }),
   ],
   devServer: {
@@ -49,4 +86,4 @@ module.exports = {
     compress: true,
     port: 3000,
   },
-};
+});

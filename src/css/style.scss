@@ -266,43 +266,57 @@ a {
 }
 
 .footer {
-    display: flex;
-    justify-content: space-between;
     font-size: 0.8em;
+
+    &__wrapper {
+        display: flex;
+        justify-content: space-between;
+        column-gap: 1rem;
+
+        margin-left: 1rem;
+        margin-right: 1rem;
+
+        @include media(xs) {
+            flex-wrap: wrap;
+        }
+    }
 
     p {
         margin-top: 0.25em;
         margin-bottom: 0.25em;
+        word-wrap: anywhere;
     }
 
     &__left {
         display: flex;
         align-items: center;
         justify-content: center;
+        
         flex-basis: 30%;
-        margin-left: 1rem;
-        margin-right: 1rem;
+        flex-grow: 1;
     }
 
     &__middle {
         display: flex;
         align-items: center;
-        flex-basis: 30%;
-        margin-right: 1rem;
+        
+        flex-grow: 1;
     }
 
     &__right {
         display: flex;
-        margin-right: 1rem;
-
-        @include media(xs) {
-            margin-left: 1rem;
-        }   
+        flex-basis: 40%;
+        
+        flex-grow: 1;
     }
 
     &__myname {
         font-size: 2rem;
         font-weight: bold;
+
+        @include media(xs) {
+            font-size: 1.25rem;
+        }
     }
 
     &__content {
@@ -312,9 +326,5 @@ a {
 
     &__heading {
         font-weight: bold;
-    }
-
-    @include media(xs) {
-        flex-wrap: wrap;
     }
 }

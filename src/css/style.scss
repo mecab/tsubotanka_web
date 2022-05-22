@@ -89,6 +89,18 @@ a {
         font-size: 1.5em;
         font-weight: bold;
         font-style: italic;
+
+        @include media(xs) {
+            display: none;
+        }
+
+        &--small {
+            display: none;
+            @include media(xs) {
+                display: block;
+                font-weight: bold;
+            }   
+        }
     }
 }
 
@@ -255,6 +267,7 @@ a {
 
 .footer {
     display: flex;
+    justify-content: space-between;
     font-size: 0.8em;
 
     p {
@@ -281,6 +294,10 @@ a {
     &__right {
         display: flex;
         margin-right: 1rem;
+
+        @include media(xs) {
+            margin-left: 1rem;
+        }   
     }
 
     &__myname {

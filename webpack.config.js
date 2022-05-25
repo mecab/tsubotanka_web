@@ -64,11 +64,21 @@ module.exports = (env, argv) => ({
         {
           implementation: ImageMinimizerPlugin.squooshMinify,
           options: {
+            encodeOptions: {
+              oxipng: {
+                level: 5,
+              },
+            },
+          }
+        },
+        {
+          filter: (_, sourcePath) => (/_512w\.(png|jpe?g)$/i).test(sourcePath),
+          implementation: ImageMinimizerPlugin.squooshMinify,
+          options: {
             resize: {
               enabled: true,
               width: 512,
             },
-            
             encodeOptions: {
               oxipng: {
                 level: 5,

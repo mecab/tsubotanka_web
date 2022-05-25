@@ -1,10 +1,29 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
   <meta charset="UTF-8" />
   <link rel="stylesheet" href="css/style.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>坪単価計算 ブラウザ拡張</title>
+  <meta property="og:title" content="坪単価計算 ブラウザ拡張" />
+  <meta property="og:description" content="面積と価格が含まれている文字列を選択すると、坪単価と平米単価を計算して表示するブラウザ拡張です。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://misosi.ru/tsubotanka" />
+  <meta property="og:image" content="https://misosi.ru/tsubotanka/img/ogp_1200x630.png" />
+  <meta property="og:site_name" content="坪単価計算 ブラウザ拡張" />
+  <meta property="og:locale" content="ja_JP" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@mecab" />
+  <meta name="twitter:creator" content="@mecab" />
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-P09M3BQ61C"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-P09M3BQ61C');
+  </script>
 </head>
 <body>
   <div class="layout">
@@ -38,7 +57,7 @@
           <div class="main-content__left promotion">
             <div class="promotion__picture-and-text two-column">
               <div class="two-column__image">
-                <img src="img/screenshot2.png" />
+                <img src="img/screenshot2_512w.png" />
               </div>
               <div class="two-column__text">
                 <p>☆ 坪単価を簡単に計算できます</p>
@@ -48,7 +67,7 @@
             
             <div class="promotion__picture-and-text two-column">
               <div class="two-column__image">
-                <img src="img/screenshot1.png" />
+                <img src="img/screenshot1_512w.png" />
               </div>
               <div class="two-column__text">
                 <p>☆ テキストを選択して右クリックするだけ</p>
@@ -59,7 +78,7 @@
             
             <div class="promotion__picture-and-text two-column">
               <div class="two-column__image">
-                <img src="img/screenshot3.png" />
+                <img src="img/screenshot3_512w.png" />
               </div>
               <div class="two-column__text">
                 <p>☆ 選択した文字列から自動で情報を抽出するので、サイトに依存しません</p>
@@ -85,7 +104,7 @@
                 </tr>
                 <tr>
                   <td>最新バージョン</td>
-                  <td>v0.9.0</td>
+                  <td>v0.9.1</td>
                 </tr>
                 <tr>
                   <td>ソフトウェアの種類</td>
